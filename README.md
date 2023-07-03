@@ -7,7 +7,7 @@
 </p>
 <h2 align="Center">"Solutions for the Geeksforgeeks Problem of the Day."</h2>
 <h2>Contents:</h2>
-<p>This repository contains the Solutions for the Geeksforgeeks Problem of the Day. The problems are uploaded every day, and the solutions are written in Python.</p> 
+<p>This repository contains the Solutions for the Geeksforgeeks Problem of the Day. The problems are uploaded every day, and the solutions are written in C++</p> 
 
 <h3>How to use this repository:</h3>
   <p>To use this repository, simply clone it to your local machine. Then, you can run the solutions by opening the corresponding Python file in a text editor or IDE.</p>
