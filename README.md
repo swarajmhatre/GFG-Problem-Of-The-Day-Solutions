@@ -1,13 +1,21 @@
-<h1>
+<h1 align="center">
   Geeksforgeeks Problem of the Day Solutions
 </h1>
-This repository contains the solutions for the Geeksforgeeks problem of the day. The problems are uploaded every day, and the solutions are written in Python.
+<p align="center"><img src = "https://media.geeksforgeeks.org/img-practice/Problemofthedaynewcopy-1637640589.png" alt="Problem of the day image" style=" display: block;
+   width: auto;
+   margin: auto;"/>
+</p>
+<h2 align="Center">"Solutions for the Geeksforgeeks Problem of the Day."</h2>
+<h2>Contents:</h2>
+<p>This repository contains the Solutions for the Geeksforgeeks Problem of the Day. The problems are uploaded every day, and the solutions are written in Python.</p> 
 
-How to use this repository:
-To use this repository, simply clone it to your local machine. Then, you can run the solutions by opening the corresponding Python file in a text editor or IDE.
+<h3>How to use this repository:</h3>
+  <p>To use this repository, simply clone it to your local machine. Then, you can run the solutions by opening the corresponding Python file in a text editor or IDE.</p>
 
-Contributing to this repository:
-If you would like to contribute to this repository, please feel free to submit a pull request. When submitting a pull request, please make sure that your code is well-formatted and that it passes all of the unit tests.
+<h3>Contributing to this repository:</h3>
+<p>If you would like to contribute to this repository, please feel free to submit a pull request. When submitting a pull request, please make sure that your code is well-formatted and that it passes all of the unit tests.</p>
 
-License
-This repository is licensed under the MIT License.
+
+<h4>License:</h4>
+  <p>This repository is licensed under the MIT License.</p>
+
