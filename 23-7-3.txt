@@ -7,26 +7,25 @@ Given an array arr[] of n positive integers. The task is to find the maximum of 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Solution: 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution{
 public:
     int maxIndexDiff(int arr[], int n) {
         // code here
     int i=0;
-    int j =0;
+    int j =n-1;
     int iRet =0;
-    while(i<(n-1)){
-        if(arr[i]<=arr[j]){
-             if(iRet <(j-i)){
-            iRet =j-i;
-        }
-        }
-        j++;
-        if(j>(n-1)){
-            i++;
-            j = i;
-        }
-        if((n-i)< iRet){
+    while(i<j){
+        if((n-i)<iRet){
             break;
         }
+        if(arr[i]<=arr[j]){
+             iRet = max(iRet, j-i);
+             i++;
+             j = n-1;
+        }
+      else{
+          j--;
+      }
     }
     return iRet;
     }
