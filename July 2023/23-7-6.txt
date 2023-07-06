@@ -1,0 +1,51 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+Problem Statement: 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Quick Sort is a Divide and Conquer algorithm. It picks an element as a pivot and partitions the given array around the picked pivot.
+Given an array arr[], its starting position is low (the index of the array) and its ending position is high(the index of the array).
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Solution: 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution
+{
+    public:
+    void swap(int* a, int* b)
+{
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+    //Function to sort an array using quick sort algorithm.
+    void quickSort(int arr[], int low, int high)
+    {
+        if(low<high){
+        // code here
+        int pivot = partition(arr, low, high);
+        
+        quickSort(arr, low, pivot-1);
+        quickSort(arr,pivot+1, high);
+            
+        }
+    }
+    
+    public:
+    int partition (int arr[], int low, int high)
+    {
+       // Your code here
+       int pivot = arr[high];
+       int i = low -1;
+       
+       for(int j = low; j<= high-1; j++ ){
+           if(arr[j]< pivot){
+               i++;
+               swap(&arr[i], &arr[j]);
+           }
+       }
+       
+       swap(&arr[i+1], &arr[high]);
+       return (i+1);
+    }
+};
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
