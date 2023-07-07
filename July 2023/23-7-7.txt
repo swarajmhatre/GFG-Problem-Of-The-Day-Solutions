@@ -1,0 +1,55 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+Problem Statement: 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Given two sorted arrays arr1[] and arr2[] of sizes n and m in non-decreasing order. Merge them in sorted order without using any extra space. Modify arr1 so that it contains the first N elements and modify arr2 so that it contains the last M elements.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Solution: 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution{
+    public:
+        //Function to merge the arrays.
+        void SwapIfGreater(long long arr1[], long long arr2[],int x , int y){
+            if(arr1[x] > arr2[y]){
+                int temp = arr1[x];
+                arr1[x] = arr2[y];
+                arr2[y] = temp;
+            }
+        }
+        void merge(long long arr1[], long long arr2[], int n, int m) 
+        { 
+            // code here 
+            long long len = n +m;
+            int gap = (len/2)+ (len%2);
+            int left = 0;
+            int right = 0;
+            while(gap > 0){
+                left =0;
+                right = left + gap;
+                while(right < len){
+                    //arr1 and arr1
+                    if(right <n && left <n){
+                        SwapIfGreater(arr1, arr1, left , right);
+                    }
+                    // arr1 and arr2
+                    else if(left < n && right >=n){
+                        SwapIfGreater(arr1, arr2, left , right-n);
+                    }
+                    // arr2 and arr2
+                    else{
+                        SwapIfGreater(arr2, arr2, left-n , right-n);
+                    }
+                    right++;
+                    left++;
+                }
+                if(gap<=1){
+                    break;
+                }
+                gap = (gap/2)+(gap%2);
+                
+            }
+            
+        } 
+};
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
