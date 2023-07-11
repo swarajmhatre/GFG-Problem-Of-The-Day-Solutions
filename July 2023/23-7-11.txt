@@ -1,0 +1,52 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+Problem Statement: 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Given a matrix with n rows and m columns. Your task is to find the kth element which is obtained while traversing the matrix spirally. You need to complete the method findK which takes four arguments the first argument is the matrix A and the next two arguments will be n and m denoting the size of the matrix A and then the forth argument is an integer k. The function will return the kth element obtained while traversing the matrix spirally.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Solution: 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution
+{
+    public:
+    /*You are required to complete this method*/
+    int findK(int a[MAX][MAX],int n,int m,int k)
+    {
+        int cL =0, cU = m-1, rL =0, rU=n-1;
+        int iCount =0;
+        int i=0;
+      
+        while(iCount!= n*m){
+          for( i=cL; i<= cU; i++  ){
+              iCount++;
+              if(iCount == k){
+                  return a[rL][i];
+              }
+            }
+            rL++;
+            for( i= rL; i<= rU; i++){
+                iCount++;
+                if(iCount == k){
+                  return a[i][cU];
+              }
+            }
+            cU--;
+            for(i = cU; i>=cL; i-- ){
+                iCount++;
+                if(iCount == k){
+                  return a[rU][i];
+              }
+            }
+            rU--;
+            for(i = rU; i>=rL; i--){
+                 iCount++;
+                if(iCount == k){
+                  return a[i][cL];
+              }
+            }
+            cL++;
+        }
+        return 0;
+    }
+};
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
