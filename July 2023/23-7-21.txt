@@ -1,0 +1,36 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+Problem Statement: 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Given a linked list of size N. The task is to reverse every k nodes (where k is an input to the function) in the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should be considered as a group and must be reversed (See Example 2 for clarification).
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Solution: 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution
+{
+    public:
+    
+    struct node *reverse (struct node *head, int k)
+    { 
+        // Complete this method
+        node *pichli=NULL,*curr=head,*agli,*fhead=NULL,*temp=NULL;
+        int c=0;
+        while(head){
+            while(curr and c<k){
+                agli=curr->next;
+                curr->next=pichli;
+                pichli=curr;
+                curr=agli;
+                c++;
+            }
+            if(!fhead)fhead=pichli;
+            if(temp)temp->next=pichli;
+            temp=head;
+            pichli=NULL;
+            head=curr;
+            c=0;
+        }
+        return fhead;
+    }
+};
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
