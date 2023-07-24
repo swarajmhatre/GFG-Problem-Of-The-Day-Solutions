@@ -1,0 +1,36 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+Problem Statement: 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Given a Binary Tree, find Right view of it. Right view of a Binary Tree is set of nodes visible when tree is viewed from right side.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Solution: 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution
+{
+    public:
+    //Function to return list containing elements of right view of binary tree.
+    void help(Node *root, int cur, int &taken, vector<int> &vRet){
+        if(root == NULL){
+            return;
+        }
+        if(taken<cur){
+            vRet.push_back(root->data);
+            taken++;
+        }
+        cur++;
+        help(root->right, cur,taken,vRet);
+        help(root->left, cur,taken,vRet);
+    }
+    vector<int> rightView(Node *root)
+    {
+       // Your Code here
+       vector <int> vRet;
+       int cur =1, taken =0;
+       help(root, cur, taken, vRet);
+       return vRet;
+       
+    }
+};
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
