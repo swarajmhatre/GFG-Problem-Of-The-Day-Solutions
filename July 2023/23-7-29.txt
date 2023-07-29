@@ -1,0 +1,112 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+Problem Statement: 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Given a Binary Search Tree of size N, find the Median of its Node values.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Solution: 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+/*
+Structure of the binary Search Tree is as
+struct Node {
+    int data;
+    Node *left;
+    Node *right;
+
+    Node(int val) {
+        data = val;
+        left = right = NULL;
+    }
+};
+*/
+// your task is to complete the Function
+// Function should return median of the BST
+int countNodes(struct Node * root) {
+
+  int count = 0;
+
+  if (root == NULL) {
+    return count;
+  }
+
+  Node * current = root;
+  Node * pred;
+
+  while (current != NULL) {
+    if (current -> left == NULL) {
+      count++;
+      current = current -> right;
+    } else {
+      pred = current -> left;
+      while (pred -> right != NULL && pred -> right != current) {
+        pred = pred -> right;
+      }
+      if (pred -> right == NULL) {
+        pred -> right = current;
+        current = current -> left;
+      } else {
+        pred -> right = NULL;
+        count++;
+        current = current -> right;
+      }
+    }
+  }
+  return count;
+}
+float findMedian(struct Node * root) {
+  //Code here
+  if (root == NULL) {
+    return 0;
+  }
+
+  int count = countNodes(root);
+  int currCount = 0;
+
+  struct Node * current, * pred, * prev;
+  current = root;
+
+  while (current != NULL) {
+    if (current -> left == NULL) {
+      currCount++;
+
+      if (count % 2 != 0 && currCount == (count + 1) / 2)
+        return (float) current -> data;
+
+      // Even case
+      else if (count % 2 == 0 && currCount == (count / 2) + 1)
+        return (float)(prev -> data + current -> data) / 2;
+
+      prev = current;
+      current = current -> right;
+    } else {
+      pred = current -> left;
+      while (pred -> right != NULL && pred -> right != current) {
+        pred = pred -> right;
+      }
+      if (pred -> right == NULL) {
+        pred -> right = current;
+        current = current -> left;
+      } else {
+        pred -> right = NULL;
+        prev = pred;
+        currCount++;
+        if (count % 2 != 0 && currCount == (count + 1) / 2)
+          return (float) current -> data;
+
+        // Even case
+        else if (count % 2 == 0 && currCount == (count / 2) + 1)
+          return (float)(prev -> data + current -> data) / 2;
+
+        prev = current;
+        current = current -> right;
+      }
+    }
+  }
+
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
